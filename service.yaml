@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: hello-aws-service
+
+spec:
+  selector:
+    app: hello-aws
+
+  ports:
+    - port: 80
+      targetPort: 8080
+
+  type: NodePort

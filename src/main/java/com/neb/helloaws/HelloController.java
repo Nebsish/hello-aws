@@ -7,12 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping("/")
-    public String home() {
-        return "Hello AWS";
-    }
-
-    @GetMapping("/health")
-    public String health() {
-        return "OK";
+    public String hello() {
+        return "Hello from " + System.getenv("HOSTNAME");
     }
 }

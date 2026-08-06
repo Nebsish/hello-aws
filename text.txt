@@ -1,0 +1,49 @@
+mvn clean install : a jar is created and kept inside target folder
+
+as spring boot is having an embedded server.
+thats why if we run that jar only, a server starts running the code (present inside the jar).
+
+java -jar path/abc.jar
+----------------------
+
+laptop
+   java 21, maven, windows os.
+
+   jar ---> send to you.
+   your laptop: ubuntu, java 17.
+
+   java -jar abc.jar
+
+---> docker solves this
+now, i will not send the jar but
+docker package : app, java runtime, os things, ..
+docker image
+------------------------------
+docker image:   os, java, app code, related.
+docker run abcimage   : it will create a container
+
+browser: spring boot [without docker]
+browser: docker container : spring boot
+
+docker image : Dockerfile
+
+how image got created:
+    1. in my spring boot app , i created a file Dockerfile.    kept all necessary steps.
+    2. I did to the project as  mvn clean install:   it will create a jar inside target folder
+ ****   3. Then I did a docker build : it reads Dockerfile : which creates the actual image.:
+                                                    that image later we have to run for container
+       > docker build -t hello-aws:1.4 .
+  ** Container: docker run -d --name hello-container-aws -p 8081:8081 hello-aws:1.3
+8081    ->    8081
+hostport      container port
+
+browser->[hostport] localhost:8081  -> docker -> container port 8081 -> spring app
+another ex:
+9001    ->    8081
+hostport      container port
+browser->[hostport] localhost:9001  -> docker -> container port 8081 -> spring app
+
+
+
+
+

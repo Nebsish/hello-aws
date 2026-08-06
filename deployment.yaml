@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hello-aws
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: hello-aws
+
+  template:
+    metadata:
+      labels:
+        app: hello-aws
+
+    spec:
+      containers:
+        - name: hello-aws
+          image: hello-aws:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
